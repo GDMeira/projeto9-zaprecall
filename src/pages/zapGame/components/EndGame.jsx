@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import notOk from '../../../assets/icone_erro.png';
 import party from '../../../assets/party.png';
 import sad from '../../../assets/sad.png';
@@ -9,17 +10,17 @@ export default function Endgame({states}){
     if (states.responsesGot.length !== states.totalCardsNumber) {
         content = <></>;
     } else if (hasAnError) {
-        content = <>
-            <div>
+        content = <section data-test="finish-text">
+            <div >
                 <img src={sad} alt="sad" />
                 <strong>{' '} Putz</strong>
             </div>
             <div>
                 Ainda faltam alguns...<br />Mas não desanime!
             </div>
-        </>
+        </section>
     } else {
-        content = <>
+        content = <section data-test="finish-text">
             <div>
                 <img src={party} alt="party" />
                 <strong>{' '} Parabéns!</strong>
@@ -27,8 +28,19 @@ export default function Endgame({states}){
             <div>
                 Você não esqueceu de <br />nenhum flashcard!
             </div>
-        </>
+        </section>
     }
 
-    return content
+    return <SCText>
+                {content}
+            </SCText> 
+        
 }
+
+const SCText = styled.section.attrs(props => ({
+    'data-test': props['data-test'] || 'finish-text'
+  }))`
+    div {
+        margin-bottom: 10px;
+    }
+  `

@@ -4,6 +4,8 @@ import logo from "../../assets/logo.png";
 import Questions from './components/Questions/Questions';
 import cards from './components/Questions/cards';
 import EndGame from './components/EndGame';
+import ok from '../../assets/icone_certo.png';
+import notOk from '../../assets/icone_erro.png';
 
 export default function ZapGame() {
   const [states, setStates] = useState({
@@ -11,6 +13,16 @@ export default function ZapGame() {
     totalCardsNumber: cards.length,
     responsesGot: []
   })
+
+  function chooseIcon(response) {
+    if (response === ok) {
+      return 'zap-icon'
+    } else if (response === notOk) {
+      return 'no-icon'
+    } else {
+      return 'partial-icon'
+    }
+  }
 
   return (
     <>
@@ -32,7 +44,11 @@ export default function ZapGame() {
         </div>
         <div>
           <span>
-            {states.responsesGot.map((response, i) => <img key={i} src={response} alt='response' />)}
+            {states.responsesGot.map((response, i) => <img key={i}
+              src={response} 
+              alt='response'
+              data-test={chooseIcon(response)} 
+              />)}
           </span>
         </div>
       </SCFooter>
@@ -70,7 +86,9 @@ const SCTitle = styled.div`
   }
 `;
 
-const SCFooter = styled.div`
+const SCFooter = styled.div.attrs(props => ({
+  'data-test': props['data-test'] || 'footer'
+}))`
   width: 100vw;
   height: ${props => props.states.responsesGot.length !== props.states.totalCardsNumber ? '70px' : '171px'};
   position: fixed;
@@ -98,6 +116,6 @@ const SCFooter = styled.div`
 
   strong {
     font-weight: 700;
-    color: #333333
+    color: #333333;
   }
 `;
