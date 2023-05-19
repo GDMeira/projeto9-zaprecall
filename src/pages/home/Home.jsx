@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import logo from "../../assets/logo.png";
 
@@ -7,7 +6,7 @@ export default function Home({setPage}) {
         <SCHome >
             <img src={logo} alt="logo" />
             <h1>ZapRecall</h1>
-            <button onClick={() => setPage('ZapGame')}>Iniciar Recall!</button>
+            <button data-test="start-btn" onClick={() => setPage('ZapGame')}>Iniciar Recall!</button>
         </SCHome>
     )
 }

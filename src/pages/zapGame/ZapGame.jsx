@@ -3,30 +3,41 @@ import styled from 'styled-components';
 import logo from "../../assets/logo.png";
 import Questions from './components/Questions/Questions';
 import cards from './components/Questions/cards';
+import EndGame from './components/EndGame';
 
 export default function ZapGame() {
-    const [states, setStates] = useState({
-        cardChoosed: 'none',
-        totalCardsNumber: cards.length,
-        responsesGot: []
-    })
+  const [states, setStates] = useState({
+    cardChoosed: 'none',
+    totalCardsNumber: cards.length,
+    responsesGot: []
+  })
 
-    return (
-        <>
-            <SCMain totalCardsNumber={states.totalCardsNumber}>
-                <SCTitle>
-                    <img src={logo} alt="logo" />
-                    <h1>ZapRecall</h1>
-                </SCTitle>
+  return (
+    <>
+      <SCMain totalCardsNumber={states.totalCardsNumber}>
+        <SCTitle>
+          <img src={logo} alt="logo" />
+          <h1>ZapRecall</h1>
+        </SCTitle>
 
-                <Questions states={states} setStates={setStates} />
-            </SCMain>
+        <Questions states={states} setStates={setStates} />
+      </SCMain>
 
-            <SCFooter>
-                <span>{states.responsesGot.length}/{states.totalCardsNumber} CONCLUÍDOS</span>
-            </SCFooter>
-        </>
-    )
+      <SCFooter states={states}>
+        <EndGame states={states} />
+        <div>
+          <span>
+            {states.responsesGot.length}/{states.totalCardsNumber} CONCLUÍDOS
+          </span>
+        </div>
+        <div>
+          <span>
+            {states.responsesGot.map((response, i) => <img key={i} src={response} alt='response' />)}
+          </span>
+        </div>
+      </SCFooter>
+    </>
+  )
 }
 
 const SCMain = styled.main`
@@ -61,13 +72,32 @@ const SCTitle = styled.div`
 
 const SCFooter = styled.div`
   width: 100vw;
-  height: 70px;
+  height: ${props => props.states.responsesGot.length !== props.states.totalCardsNumber ? '70px' : '171px'};
   position: fixed;
   bottom: 0;
   z-index: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
   background-color: #ffffff;
   font-family: 'Recursive', sans-serif;
+  text-align: center;
+
+  img {
+    width: 23px;
+    height: 23px;
+    margin: 2px;
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  strong {
+    font-weight: 700;
+    color: #333333
+  }
 `;
