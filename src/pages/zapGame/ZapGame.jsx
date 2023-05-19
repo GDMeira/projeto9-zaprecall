@@ -2,22 +2,28 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import logo from "../../assets/logo.png";
 import Questions from './components/Questions/Questions';
+import cards from './components/Questions/cards';
 
 function ZapGame() {
+    const [states, setStates] = useState({
+        cardChoosed: 'none',
+        totalCardsNumber: cards.length,
+        responsesGot: []
+    })
 
     return (
         <>
-            <SCMain>
+            <SCMain totalCardsNumber={states.totalCardsNumber}>
                 <SCTitle>
                     <img src={logo} alt="logo" />
                     <h1>ZapRecall</h1>
                 </SCTitle>
 
-                <Questions />
+                <Questions states={states} setStates={setStates} />
             </SCMain>
 
             <SCFooter>
-                <span>Contagem</span>
+                <span>{states.responsesGot.length}/{states.totalCardsNumber} CONCLUÍDOS</span>
             </SCFooter>
         </>
     )
@@ -28,7 +34,9 @@ export default ZapGame
 const SCMain = styled.main`
   width: 100vw;
   height: calc(100vh - 70px);
+  min-height: calc(160px + ${props => props.totalCardsNumber} * 89px); //colocar nro de questoes no lugar do 8
   background-color: #fb6b6b;
+  padding-bottom: 175px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -53,9 +61,12 @@ const SCTitle = styled.div`
   }
 `;
 
-const SCFooter = styled.footer`
+const SCFooter = styled.div`
   width: 100vw;
   height: 70px;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;

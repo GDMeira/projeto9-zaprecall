@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import ZapGame from './pages/zapGame/ZapGame';
-import ResetStyle from './pages/zapGame/components/ResetStyle';
+import ResetStyle from './ResetStyle';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [page, setPage] = useState('ZapGame'); //mudar se tiver home
 
   return (
     <>
       <ResetStyle />
-      <ZapGame />
+      {page === 'ZapGame' ? <ZapGame /> : <h1> 400 page not found</h1>}
     </>
   )
 }

@@ -3,11 +3,12 @@ import styled from "styled-components";
 import CardQuestion from "./CardQuestion";
 import cards from "./cards";
 
-export default function Questions() {
+export default function Questions({states, setStates}) {
 
     return (
         <SCList>
-            {cards.map((card, i) => <CardQuestion key={i} card={card}/>)}
+            {cards.map((card, i) => <CardQuestion key={i} number={i} card={card}
+                                        states={states} setStates={setStates}/>)}
         </SCList>
     )
 }
@@ -15,4 +16,5 @@ export default function Questions() {
 const SCList = styled.ul`
     width: 66vw;
     max-width: 600px;
+    background-color: inherit;
 `;
