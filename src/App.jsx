@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import ZapGame from './pages/zapGame/ZapGame';
 import ResetStyle from './ResetStyle';
+import Home from './pages/home/Home';
 
 function App() {
-  const [page, setPage] = useState('ZapGame'); //mudar se tiver home
+  const [page, setPage] = useState('Home'); //mudar se tiver home
 
   return (
     <>
       <ResetStyle />
-      {page === 'ZapGame' ? <ZapGame /> : <h1> 400 page not found</h1>}
+      {page === 'ZapGame' ? <ZapGame /> : <Home setPage={setPage}/>}
     </>
   )
 }

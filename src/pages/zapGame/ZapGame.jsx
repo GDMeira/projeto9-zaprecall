@@ -4,7 +4,7 @@ import logo from "../../assets/logo.png";
 import Questions from './components/Questions/Questions';
 import cards from './components/Questions/cards';
 
-function ZapGame() {
+export default function ZapGame() {
     const [states, setStates] = useState({
         cardChoosed: 'none',
         totalCardsNumber: cards.length,
@@ -28,8 +28,6 @@ function ZapGame() {
         </>
     )
 }
-
-export default ZapGame
 
 const SCMain = styled.main`
   width: 100vw;
