@@ -90,7 +90,9 @@ const SCCard = styled.div`
     margin: 12px;
     padding: 20px;
     border-radius: 5px;
-    transition: all 0.4s ease-in;
+    transition: all 0.6s ease-in;
+    backface-visibility: hidden;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
 
     button:hover {
         cursor: pointer;
@@ -103,7 +105,7 @@ const SCCard = styled.div`
     ${props => {
         switch (props.gameStates.stage) {
             case 'hiddenCard':
-                return `height: 65px;
+                return `height: 25px;
                 background-color: #ffffff;
                 font-size: 16px;
                 font-weight: 700;
@@ -123,7 +125,7 @@ const SCCard = styled.div`
                 break;
 
             case 'readingCard':
-                return `height: 131px;
+                return `height: 91px;
                 background-color: #ffffd4;
                 font-size: 18px;
                 font-weight: 400;
@@ -147,17 +149,19 @@ const SCCard = styled.div`
                 break;
 
             case 'answering':
-                return `height: 131px;
+                return `height: 91px;
                 background-color: #ffffd4;
                 font-size: 18px;
                 font-weight: 400;
                 flex-direction: column;
                 justify-content: space-evenly;
                 align-items: center;
+                transform: rotateY(360deg);
                 
                 div {
                     display: flex;
                     justify-content: space-between;
+                    margin-top: 20px;
                 }
 
                 img {
@@ -166,7 +170,7 @@ const SCCard = styled.div`
                 }
 
                 button {
-                    width: 90px;
+                    width: 85px;
                     heigth: 40px;
                     font-size: 12px;
                     color: #fff;
@@ -187,7 +191,7 @@ const SCCard = styled.div`
                 break;
 
             case 'closedCard':
-                return `height: 65px;
+                return `height: 25px;
                 background-color: #ffffff;
                 font-size: 16px;
                 font-weight: 700;

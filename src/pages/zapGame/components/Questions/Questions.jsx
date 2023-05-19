@@ -14,7 +14,7 @@ export default function Questions({states, setStates}) {
 }
 
 const SCList = styled.ul`
-    width: 66vw;
+    width: 80vw;
     max-width: 600px;
     background-color: inherit;
 `;
