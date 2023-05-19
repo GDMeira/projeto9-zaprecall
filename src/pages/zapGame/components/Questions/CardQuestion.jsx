@@ -60,11 +60,9 @@ export default function CardQuestion({ card, number, states, setStates }) {
     }
 
     return (
-        <li data-test="flashcard">
             <SCCard gameStates={gameStates}>
                 {cardContent}
             </SCCard>
-        </li>
     )
 
     function startThisCard(number) {
@@ -92,7 +90,9 @@ export default function CardQuestion({ card, number, states, setStates }) {
     }
 }
 
-const SCCard = styled.div`
+const SCCard = styled.li.attrs(props => ({
+    'data-test': props['data-test'] || "flashcard"
+}))`
     font-family: 'Recursive', sans-serif;
     display: flex;
     margin: 12px;
@@ -134,12 +134,12 @@ const SCCard = styled.div`
 
             case 'readingCard':
                 return `height: 91px;
-                background-color: #ffffd4;
                 font-size: 18px;
                 font-weight: 400;
                 position: relative;
                 justify-content: flex-start;
                 align-items: flex-start;
+                background-color: #ffffd4;
 
                 img {
                     height: 20px;
