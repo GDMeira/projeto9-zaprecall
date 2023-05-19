@@ -90,7 +90,7 @@ export default function CardQuestion({ card, number, states, setStates }) {
     }
 }
 
-const SCCard = styled.li.attrs(props => ({
+const SCCard = styled.div.attrs(props => ({
     'data-test': props['data-test'] || "flashcard"
 }))`
     font-family: 'Recursive', sans-serif;
@@ -203,6 +203,7 @@ const SCCard = styled.li.attrs(props => ({
                 background-color: #ffffff;
                 font-size: 16px;
                 font-weight: 700;
+                color: ${(props.gameStates.answer === ok ? '#2fbe34' : (props.gameStates.answer === notOk ? '#ff3030' : '#ff922e'))};
                 text-decoration: line-through;
                 flex-direction: row;
                 justify-content: space-between;
@@ -211,6 +212,7 @@ const SCCard = styled.li.attrs(props => ({
                 img {
                     height: 20px;
                     width: 20px;
+                    margin: 4px;
                 }`;
                 break;
 
