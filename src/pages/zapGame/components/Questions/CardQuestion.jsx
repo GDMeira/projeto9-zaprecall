@@ -96,7 +96,7 @@ const SCCard = styled.div.attrs(props => ({
     font-family: 'Recursive', sans-serif;
     display: flex;
     margin: 12px;
-    padding: 20px;
+    padding: 10px;
     border-radius: 5px;
     transition: all 0.6s ease-in;
     backface-visibility: hidden;
@@ -113,7 +113,7 @@ const SCCard = styled.div.attrs(props => ({
     ${props => {
         switch (props.gameStates.stage) {
             case 'hiddenCard':
-                return `height: 25px;
+                return `height: 45px;
                 background-color: #ffffff;
                 font-size: 16px;
                 font-weight: 700;
@@ -133,7 +133,7 @@ const SCCard = styled.div.attrs(props => ({
                 break;
 
             case 'readingCard':
-                return `height: 91px;
+                return `height: 111px;
                 font-size: 18px;
                 font-weight: 400;
                 position: relative;
@@ -157,7 +157,7 @@ const SCCard = styled.div.attrs(props => ({
                 break;
 
             case 'answering':
-                return `height: 91px;
+                return `height: 111px;
                 background-color: #ffffd4;
                 font-size: 18px;
                 font-weight: 400;
@@ -169,7 +169,7 @@ const SCCard = styled.div.attrs(props => ({
                 div {
                     display: flex;
                     justify-content: space-between;
-                    margin-top: 20px;
+                    margin-top: 15px;
                 }
 
                 img {
@@ -199,7 +199,7 @@ const SCCard = styled.div.attrs(props => ({
                 break;
 
             case 'closedCard':
-                return `height: 25px;
+                return `height: 45px;
                 background-color: #ffffff;
                 font-size: 16px;
                 font-weight: 700;

@@ -101,6 +101,7 @@ const SCFooter = styled.div.attrs(props => ({
   background-color: #ffffff;
   font-family: 'Recursive', sans-serif;
   text-align: center;
+  overflow: hidden;
 
   img {
     width: 23px;
