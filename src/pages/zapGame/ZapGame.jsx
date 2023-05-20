@@ -58,10 +58,10 @@ export default function ZapGame() {
 
 const SCMain = styled.main`
   width: 100%;
-  height: calc(100% - 70px);
+  height: calc(100vh - 70px);
   min-height: calc(160px + ${props => props.totalCardsNumber} * 89px); //colocar nro de questoes no lugar do 8
   background-color: #fb6b6b;
-  padding-bottom: 175px;
+  margin-bottom: 175px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
