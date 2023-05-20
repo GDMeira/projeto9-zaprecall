@@ -14,7 +14,7 @@ export default function Questions({states, setStates}) {
 }
 
 const SCList = styled.div`
-    width: 80vw;
+    width: 80%;
     max-width: 600px;
     background-color: inherit;
 `;

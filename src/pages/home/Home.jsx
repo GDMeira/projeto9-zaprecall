@@ -12,8 +12,8 @@ export default function Home({setPage}) {
 }
 
 const SCHome = styled.main`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: #fb6b6b;
   display: flex;
   flex-direction: column;

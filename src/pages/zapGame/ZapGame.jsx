@@ -57,8 +57,8 @@ export default function ZapGame() {
 }
 
 const SCMain = styled.main`
-  width: 100vw;
-  height: calc(100vh - 70px);
+  width: 100%;
+  height: calc(100% - 70px);
   min-height: calc(160px + ${props => props.totalCardsNumber} * 89px); //colocar nro de questoes no lugar do 8
   background-color: #fb6b6b;
   padding-bottom: 175px;
@@ -89,7 +89,7 @@ const SCTitle = styled.div`
 const SCFooter = styled.div.attrs(props => ({
   'data-test': props['data-test'] || 'footer'
 }))`
-  width: 100vw;
+  width: 100%;
   height: ${props => props.states.responsesGot.length !== props.states.totalCardsNumber ? '70px' : '171px'};
   position: fixed;
   bottom: 0;
