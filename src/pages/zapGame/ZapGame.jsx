@@ -61,7 +61,7 @@ const SCMain = styled.main`
   height: calc(100vh - 70px);
   min-height: calc(160px + ${props => props.totalCardsNumber} * 89px); //colocar nro de questoes no lugar do 8
   background-color: #fb6b6b;
-  margin-bottom: 175px;
+  padding-bottom: 175px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
