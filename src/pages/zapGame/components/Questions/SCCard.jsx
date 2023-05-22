@@ -77,7 +77,7 @@ const SCCard = styled.div.attrs(props => ({
                 flex-direction: column;
                 justify-content: space-evenly;
                 align-items: center;
-                transform: rotateY(360deg);
+                // transform: rotateY(360deg);
                 
                 div {
                     display: flex;
