@@ -11,7 +11,7 @@ const SCCard = styled.div.attrs(props => ({
     margin: 12px;
     padding: 10px;
     border-radius: 5px;
-    //transition: all 0.6s ease-in;
+    transition: all 0.6s ease-in;
     backface-visibility: hidden;
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
 

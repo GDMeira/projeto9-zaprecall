@@ -9,7 +9,7 @@ export default function Endgame({states}){
     let content;
 
     if (!isGameFinished) {
-        return
+        return <></>
     } else if (isGameFinished && hasAnError) {
         content = <section>
             <div >
