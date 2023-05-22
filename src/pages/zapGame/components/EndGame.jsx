@@ -4,13 +4,14 @@ import party from '../../../assets/party.png';
 import sad from '../../../assets/sad.png';
 
 export default function Endgame({states}){
-    const hasAnError = states.responsesGot.includes(notOk);
+    let hasAnError = states.responsesGot.includes(notOk);
+    let isGameFinished = states.responsesGot.length === states.totalCardsNumber;
     let content;
 
-    if (states.responsesGot.length !== states.totalCardsNumber) {
-        content = <></>;
-    } else if (hasAnError) {
-        content = <section data-test="finish-text">
+    if (!isGameFinished) {
+        return
+    } else if (isGameFinished && hasAnError) {
+        content = <section>
             <div >
                 <img src={sad} alt="sad" />
                 <strong>{' '} Putz</strong>
@@ -19,8 +20,8 @@ export default function Endgame({states}){
                 Ainda faltam alguns...<br />Mas não desanime!
             </div>
         </section>
-    } else {
-        content = <section data-test="finish-text">
+    } else if (isGameFinished && !hasAnError) {
+        content = <section>
             <div>
                 <img src={party} alt="party" />
                 <strong>{' '} Parabéns!</strong>
